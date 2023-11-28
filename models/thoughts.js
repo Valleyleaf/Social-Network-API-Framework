@@ -3,11 +3,12 @@ const { Schema, model} = require('mongoose');
 
 const ThoughtsSchema = new Schema(
 {
-    item1: {
+    thoughtText: {
         type: String,
         unique: true,
         required: true,
-        maxlength: 50,
+        minlength: 1,
+        maxlength: 280,
         trimmed: true,
     },
 
@@ -17,3 +18,7 @@ const ThoughtsSchema = new Schema(
 const Thoughts = model('Thoughts', ThoughtsSchema)
 
 module.exports = Thoughts;
+
+
+
+// Has this been tested: []

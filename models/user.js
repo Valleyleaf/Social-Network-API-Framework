@@ -1,6 +1,6 @@
 const { Schema, model} = require('mongoose');
 const Thoughts = require('./Thoughts')
-
+import { isEmail } from 'validator';
 
 const UserSchema = new Schema(
 {
@@ -17,7 +17,8 @@ const UserSchema = new Schema(
         type: String,
         required: true,
         maxlength: 50,
-        // Add Mongoose matching validation here.
+        validate: [ isEmail, 'invalid email' ]
+        
     },
     thoughts: {
         _id:[{ type: Schema.Types.ObjectId, ref: 'Thoughts' }]
@@ -31,3 +32,6 @@ const UserSchema = new Schema(
 const User = model('User', UserSchema)
 
 module.exports = User;
+
+
+// Has this been tested: []
