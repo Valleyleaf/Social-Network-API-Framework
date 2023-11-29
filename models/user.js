@@ -2,10 +2,11 @@ const { Schema, model} = require('mongoose');
 const Thoughts = require('./Thoughts')
 import { isEmail } from 'validator';
 
+console.log('user model activated')
+
+
 const UserSchema = new Schema(
 {
-    // Add items
-    // Tie Reactions and thoughts to this. Then for Thoughts, tie reactions to it.
     userName: {
         type: String,
         unique: true,
@@ -25,9 +26,21 @@ const UserSchema = new Schema(
     },
     friends: {
         _id:[{ type: Schema.Types.ObjectId, ref: 'User' }]
-    }
-}
+    },
+},
+{
+    toJSON: {
+      virtuals: true,
+    },
+  }
 );
+//Everything above this should work. DOublecheck on the below
+
+userSchema.virtual('userFriends').get(function() {
+    console.log('userFriend virtual hit')
+    return this.friends.length;
+});
+//Double check that this virtual works.
 
 const User = model('User', UserSchema)
 
