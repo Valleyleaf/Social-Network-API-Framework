@@ -3,6 +3,6 @@ const Thoughts = require('./Thoughts');
 
 
 module.exports = {User, Thoughts};
-// Why is User not a model?
+// User is now a model but I am getting inti-sense error on User?
 
 // Has this been tested: []

@@ -1,6 +1,7 @@
 const { Schema, model} = require('mongoose');
 const Thoughts = require('./Thoughts')
-import { isEmail } from 'validator';
+const isEmail = require('validator');
+// import { isEmail } from 'validator';
 
 console.log('user model activated')
 
