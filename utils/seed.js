@@ -3,3 +3,10 @@ const { User, Thoughts } = require('../models');
 // If functions are added to data. Require them here.
 
 connection.on('error', (err) => err);
+
+
+
+
+
+
+// Has this been tested: []

@@ -1,5 +1,6 @@
 const { Schema, model} = require('mongoose');
 const reactions = require('add later')
+const dayjs = require('dayjs');
 
 console.log('thought model activated')
 
@@ -15,9 +16,12 @@ const ThoughtsSchema = new Schema(
         //This should be fine.
     },
     createdAt: {
-        //Date
-        //Set default value to the current timestamp
-        //Use a getter method to format the timestamp on query
+        type: Date,
+        default: Date.now,
+        get: (date) => {
+            if (date) 
+                return dayjs(date).format('MMMM DD, YYYY') + ' at ' + dayjs(date).format('h:m a');
+        },
     },
     username: {
         type: String,

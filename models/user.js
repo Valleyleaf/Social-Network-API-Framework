@@ -34,11 +34,11 @@ const UserSchema = new Schema(
     },
   }
 );
-//Everything above this should work. DOublecheck on the below
+//Everything above this should work. Doublecheck on the below
 
 userSchema.virtual('userFriends').get(function() {
     console.log('userFriend virtual hit')
-    return this.friends.length;
+    return this.userFriends.length;
 });
 //Double check that this virtual works.
 
