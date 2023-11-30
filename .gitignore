@@ -1,3 +1,4 @@
 node_modules
 ignorefolder
 package.json
+.env

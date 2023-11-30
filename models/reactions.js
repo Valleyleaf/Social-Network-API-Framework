@@ -27,8 +27,13 @@ const ReactionsSchema = new Schema(
                     return dayjs(date).format('MMMM DD, YYYY') + ' at ' + dayjs(date).format('h:m a');
             },
         },
+    },
+    {
+        toJSON: {
+            getters: true,
+        }
     }
-)
+);
 
 module.exports = ReactionsSchema;
 

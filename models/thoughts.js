@@ -28,8 +28,13 @@ const ThoughtsSchema = new Schema(
     },
     reactions: [reactions]
     //Dunno if this is right
-}
-);
+},
+{
+    toJSON: {
+        getters: true,
+        virtuals: true,
+    },
+});
 
 ThoughtsSchema.virtual('userFriends').get(function() {
     console.log('userFriend virtual hit')
