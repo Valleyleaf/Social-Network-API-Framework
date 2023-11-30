@@ -1,3 +1,7 @@
+const {Thoughts} = require('../models/')
+
 console.log('Testing: Hit thoughtController')
 
-// Has this been tested: [X]
+module.exports = {
+    
+};
