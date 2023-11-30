@@ -2,9 +2,6 @@ const {User} = require('../models/')
 
 console.log('Testing: Hit userController')
 
-
-// const { Course, Student } = require('../models');
-
 module.exports = {
   // Get all Users
   async getUsers(req, res) {
@@ -21,11 +18,9 @@ module.exports = {
     try {
       const User = await User.findOne({ _id: req.params.UserId })
         .select('-__v');
-
       if (!User) {
         return res.status(404).json({ message: 'No User with that ID' });
       }
-
       res.json(User);
     } catch (err) {
       res.status(500).json(err);
@@ -51,11 +46,9 @@ module.exports = {
             { $set: req.body },
             { runValidators: true, new: true }
           );
-    
           if (!User) {
             return res.status(404).json({ message: 'No User with this id!' });
           }
-    
           res.json(User);
         } catch (err) {
           res.status(500).json(err);
@@ -71,8 +64,8 @@ module.exports = {
         return res.status(404).json({ message: 'No User with that ID' });
       }
 
-      await Student.deleteMany({ _id: { $in: User.students } });
-      res.json({ message: 'User and students deleted!' });
+      await User.deleteMany({ _id: { $in: User.thoughts } });
+      res.json({ message: 'User and thoughts deleted!' });
     } catch (err) {
       res.status(500).json(err);
     }
