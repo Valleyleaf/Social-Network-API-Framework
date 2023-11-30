@@ -1,5 +1,5 @@
 const { Schema, model} = require('mongoose');
-const reactions = require('add later')
+const reactions = require('./reactions')
 const dayjs = require('dayjs');
 
 console.log('thought model activated')
@@ -12,8 +12,7 @@ const ThoughtsSchema = new Schema(
         required: true,
         minlength: 1,
         maxlength: 280,
-        trimmed: true,
-        //This should be fine.
+        trim: true,
     },
     createdAt: {
         type: Date,
@@ -31,8 +30,12 @@ const ThoughtsSchema = new Schema(
     //Dunno if this is right
 }
 );
-//Need to track date somehow.
 
+ThoughtsSchema.virtual('userFriends').get(function() {
+    console.log('userFriend virtual hit')
+    return this.reactions.length;
+});
+// Copied from user.js. Fix controllers and then check if this works.
 
 const Thoughts = model('Thoughts', ThoughtsSchema)
 

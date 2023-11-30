@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getUser} = require('../../controllers/userController');
+const {getUser} = require('../../controllers/userController');
 
 console.log('hit user.js in API')
 

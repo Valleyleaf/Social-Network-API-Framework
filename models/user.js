@@ -12,7 +12,7 @@ const UserSchema = new Schema(
         unique: true,
         required: true,
         maxlength: 50,
-        trimmed: true,
+        trim: true,
     },
     email: {
         type: String,
@@ -34,13 +34,11 @@ const UserSchema = new Schema(
     },
   }
 );
-//Everything above this should work. Doublecheck on the below
 
 userSchema.virtual('userFriends').get(function() {
-    console.log('userFriend virtual hit')
     return this.userFriends.length;
 });
-//Double check that this virtual works.
+//Fix controllers and then check if this works.
 
 const User = model('User', UserSchema)
 

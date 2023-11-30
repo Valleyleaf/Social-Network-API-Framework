@@ -1,3 +1,3 @@
 console.log('Testing: Hit thoughtController')
 
-// Has this been tested: []
+// Has this been tested: [X]
