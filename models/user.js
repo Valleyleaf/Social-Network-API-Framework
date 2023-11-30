@@ -19,8 +19,7 @@ const UserSchema = new Schema(
         type: String,
         required: true,
         maxlength: 50,
-        validate: [ isEmail, 'invalid email' ]
-        
+        validate: [isEmail, 'invalid email']
     },
     thoughts: {
         _id:[{ type: Schema.Types.ObjectId, ref: 'Thoughts' }]
