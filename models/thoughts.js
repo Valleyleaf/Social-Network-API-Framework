@@ -1,5 +1,5 @@
 const { Schema, model} = require('mongoose');
-const reactions = require('./reactions')
+const reactions = require('./Reactions')
 const dayjs = require('dayjs');
 
 console.log('thought model activated')
