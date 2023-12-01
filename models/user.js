@@ -1,7 +1,5 @@
 const { Schema, model} = require('mongoose');
 const Thoughts = require('./Thoughts')
-const isEmail = require('validator');
-// import { isEmail } from 'validator';
 
 console.log('user model activated')
 
@@ -12,14 +10,13 @@ const UserSchema = new Schema(
         type: String,
         unique: true,
         required: true,
-        maxlength: 50,
         trim: true,
     },
     email: {
         type: String,
         required: true,
-        maxlength: 50,
-        validate: [isEmail, 'invalid email']
+        unique:true,
+        match: [/.+@.+\..+/, 'Must match an email address!'],
     },
     thoughts: {
         _id:[{ type: Schema.Types.ObjectId, ref: 'Thoughts' }]
@@ -32,10 +29,12 @@ const UserSchema = new Schema(
     toJSON: {
       virtuals: true,
     },
-  }
+    id: false,
+}
+
 );
 
-userSchema.virtual('userFriends').get(function() {
+UserSchema.virtual('userFriends').get(function() {
     return this.userFriends.length;
 });
 //Fix controllers and then check if this works.

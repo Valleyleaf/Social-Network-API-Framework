@@ -2,7 +2,7 @@ const {User} = require('../models/')
 
 console.log('Testing: Hit userController')
 
-module.exports = {
+const userController = {
   // Get all Users
   async getUsers(req, res) {
     try {
@@ -72,3 +72,5 @@ module.exports = {
 
 
 // Also need to add a FriendList creation function here. Build when other functions work.
+
+module.exports = userController

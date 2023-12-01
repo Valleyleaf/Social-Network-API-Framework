@@ -4,7 +4,8 @@ const thoughtRoutes = require('./thoughtRoutes');
 
 console.log('hit index.js in API')
 
-router.use('/', userRoutes, thoughtRoutes);
+router.use('/user', userRoutes);
+router.use('/thought', thoughtRoutes);
 
 module.exports = router;
 
