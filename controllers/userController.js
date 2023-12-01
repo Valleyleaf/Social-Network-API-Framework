@@ -68,6 +68,26 @@ const userController = {
       res.status(500).json(err);
     }
   },
+
+  async deleteFriend(req, res) {
+    try {
+        const friend = await User.findOneAndUpdate(
+            { _id: req.params.userId },
+            { $pull: { friends: req.params.friendId }},
+            { new: true }
+        );
+
+        if (!friend) {
+            return res.status(404).json({ message: 'friend ID not matching any user ID'});
+        }
+        res.json(friend);
+    } catch(err) {
+      console.log(err)
+        res.status(500).json(err)
+    }
+},
+
+
 };
 
 
