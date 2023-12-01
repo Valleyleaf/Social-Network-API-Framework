@@ -69,7 +69,8 @@ const userController = {
     }
   },
 
-  async deleteFriend(req, res) {
+
+  async updateFriend(req, res) {
     try {
         const friend = await User.findOneAndUpdate(
             { _id: req.params.userId },
@@ -86,7 +87,6 @@ const userController = {
         res.status(500).json(err)
     }
 },
-
 
 };
 

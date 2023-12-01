@@ -21,7 +21,7 @@ const thoughtController = {
     }catch(err){
      res.json(err);
     }
-  }
+  },
 
 }
 
@@ -29,7 +29,7 @@ const thoughtController = {
 // createThought
 // updateThought
 // deleteThought
-// deleteThought+Reaction
+// deleteThought+Reaction // DeleteBoth
 // deleteReaction
 
 module.exports = thoughtController
