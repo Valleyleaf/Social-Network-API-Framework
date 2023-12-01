@@ -4,11 +4,11 @@ const {getThoughts, getOneThought, createThought, updateThought, deleteThought, 
 
 // console.log('hit thought.js in API')
 
-router.route('/').get(getUsers).post(createUser);
+router.route('/').get(getThoughts).post(createThought);
 
-router.route('/userID').get(getSingleUser).put(updateUser).delete(deleteUser);
+router.route('/ThoughtID').get(getSingleThought).put(updateThought).delete(deleteThought);
 
-router.route("/:userId/friends/:friendId").post(updateFriend).put(updateFriend).delete(updateFriend);
+router.route("/:ThoughtId/friends/:friendId").post(updateFriend).put(updateFriend).delete(updateFriend);
 
 module.exports = router;
 

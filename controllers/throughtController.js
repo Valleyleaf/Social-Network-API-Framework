@@ -22,7 +22,46 @@ const thoughtController = {
      res.json(err);
     }
   },
+  async createThought(req, res) {
+    try {
+      const ThoughtsVAR = await Thought.create(req.body);
+      res.json(ThoughtsVAR);
+    } catch (err) {
+      return res.status(500).json(err);
+    }
+  },
 
+    // Update a Thought
+    async updateThought(req, res) {
+        try {
+          const ThoughtsVAR = await Thought.findOneAndUpdate(
+            { _id: req.params.ThoughtId },
+            { $set: req.body },
+            { runValidators: true, new: true }
+          );
+          if (!ThoughtsVAR) {
+            return res.status(404).json({ message: 'No Thought with this id!' });
+          }
+          res.json(ThoughtsVAR);
+        } catch (err) {
+          res.status(500).json(err);
+        }
+      },
+
+  // Delete a Thought
+  async deleteThought(req, res) {
+    try {
+      const ThoughtsVAR = await Thought.findOneAndDelete({ _id: req.params.ThoughtsVARId });
+
+      if (!Thought) {
+        return res.status(404).json({ message: 'No Thought with that ID' });
+      }
+      await Thought.deleteMany({ _id: { $in: ThoughtsVAR.thoughts } });
+      res.json({ message: 'Thought and thoughts deleted!' });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  },
 }
 
 // getOneThought
@@ -33,3 +72,14 @@ const thoughtController = {
 // deleteReaction
 
 module.exports = thoughtController
+
+// async functionname(req, res) {
+//     try{
+        
+//         if (!thoughtVAR){
+//             return res.status(404).json({message: ''});
+//         }
+//     }catch(err){
+//      res.json(err);
+//     }
+//   },
