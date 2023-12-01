@@ -31,7 +31,6 @@ const UserSchema = new Schema(
     },
     id: false,
 }
-
 );
 
 UserSchema.virtual('userFriends').get(function() {

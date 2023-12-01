@@ -18,6 +18,8 @@ const thoughtController = {
         if (!thoughtVAR){
             return res.status(404).json({message: 'Unable to find thought with that ID'});
         }
+    }catch(err){
+     res.json(err);
     }
   }
 
