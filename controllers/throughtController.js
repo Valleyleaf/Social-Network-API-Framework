@@ -31,7 +31,6 @@ const thoughtController = {
     }
   },
 
-    // Update a Thought
     async updateThought(req, res) {
         try {
           const ThoughtsVAR = await Thought.findOneAndUpdate(
@@ -48,7 +47,6 @@ const thoughtController = {
         }
       },
 
-  // Delete a Thought
   async deleteThought(req, res) {
     try {
       const ThoughtsVAR = await Thought.findOneAndDelete({ _id: req.params.ThoughtsVARId });
@@ -64,22 +62,4 @@ const thoughtController = {
   },
 }
 
-// getOneThought
-// createThought
-// updateThought
-// deleteThought
-// deleteThought+Reaction // DeleteBoth
-// deleteReaction
-
 module.exports = thoughtController
-
-// async functionname(req, res) {
-//     try{
-        
-//         if (!thoughtVAR){
-//             return res.status(404).json({message: ''});
-//         }
-//     }catch(err){
-//      res.json(err);
-//     }
-//   },

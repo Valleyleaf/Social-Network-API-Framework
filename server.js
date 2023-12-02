@@ -17,4 +17,10 @@ db.once('open', () => {
   });
   
 
+  process.on('unhandledRejection', (error) => {
+    console.error('Unhandled Rejection:', error);
+    process.exit(1); 
+  });
+  //Adding process handler to ensure server doesn't run if it runs into an error.
+
 // Has this been tested: [X]

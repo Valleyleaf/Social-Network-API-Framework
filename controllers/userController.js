@@ -3,7 +3,7 @@ const {User} = require('../models/')
 console.log('Testing: Hit userController')
 
 const userController = {
-  // Get all Users
+  
   async getUsers(req, res) {
     try {
       const usersVAR = await User.find();
@@ -13,7 +13,6 @@ const userController = {
     }
   },
 
-  // Get a single User by ID
   async getSingleUser(req, res) {
     try {
       const usersVAR = await User.findOne({ _id: req.params.usersVARId })
@@ -27,7 +26,6 @@ const userController = {
     }
   },
 
-  // Create a User
   async createUser(req, res) {
     try {
       const usersVAR = await User.create(req.body);
@@ -37,7 +35,6 @@ const userController = {
     }
   },
 
-    // Update a User
     async updateUser(req, res) {
         try {
           const usersVAR = await User.findOneAndUpdate(
@@ -54,7 +51,6 @@ const userController = {
         }
       },
 
-  // Delete a User
   async deleteUser(req, res) {
     try {
       const usersVAR = await User.findOneAndDelete({ _id: req.params.usersVARId });
