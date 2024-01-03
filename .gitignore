@@ -1,4 +1,4 @@
 node_modules
 ignorefolder
-package.json
+utils
 .env

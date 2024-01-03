@@ -1,8 +1,5 @@
-// Will this be needed or will I subclass this?
 const { Schema, Types} = require('mongoose');
 const dayjs = require('dayjs');
-
-console.log('reactions model activated')
 
 const ReactionsSchema = new Schema(
     {
@@ -37,4 +34,4 @@ const ReactionsSchema = new Schema(
 
 module.exports = ReactionsSchema;
 
-// Has this been tested: []
+// Has this been tested: [X]

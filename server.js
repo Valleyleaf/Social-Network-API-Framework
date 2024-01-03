@@ -15,12 +15,3 @@ db.once('open', () => {
       console.log(`API server running on port ${PORT}!`);
     });
   });
-  
-
-  process.on('unhandledRejection', (error) => {
-    console.error('Unhandled Rejection:', error);
-    process.exit(1); 
-  });
-  //Adding process handler to ensure server doesn't run if it runs into an error.
-
-// Has this been tested: [X]

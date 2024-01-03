@@ -1,7 +1,5 @@
 const {Thoughts} = require('../models/')
 
-console.log('Testing: Hit thoughtController')
-
 const thoughtController = {
   async getThoughts(req, res) {
     try {

@@ -27,7 +27,6 @@ const ThoughtsSchema = new Schema(
         required: true,
     },
     reactions: [reactions]
-    //Dunno if this is right
 },
 {
     toJSON: {

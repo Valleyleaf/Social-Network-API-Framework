@@ -1,7 +1,5 @@
 const {User} = require('../models/')
 
-console.log('Testing: Hit userController')
-
 const userController = {
   
   async getUsers(req, res) {

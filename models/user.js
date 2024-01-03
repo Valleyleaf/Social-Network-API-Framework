@@ -1,9 +1,6 @@
 const { Schema, model} = require('mongoose');
 const Thoughts = require('./Thoughts')
 
-console.log('user model activated')
-
-
 const UserSchema = new Schema(
 {
     userName: {
@@ -36,11 +33,10 @@ const UserSchema = new Schema(
 UserSchema.virtual('userFriends').get(function() {
     return this.userFriends.length;
 });
-//Fix controllers and then check if this works.
 
 const User = model('User', UserSchema)
 
 module.exports = User;
 
 
-// Has this been tested: []
+// Has this been tested: [X]
